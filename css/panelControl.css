@@ -1,0 +1,142 @@
+body{
+    padding:0;
+    margin:0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #272829;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+header{
+    display:flex;
+    width: 100%;
+    height:9vh;
+    /* background-color: red; */
+}
+/* Contenedor dentro de la cabecera */
+.containerHead{
+    width: 90%;
+    display:flex;
+    align-items: center;
+    margin:auto;
+    gap:5px;
+    /* background-color: blue; */
+}
+.imgPerfil{
+    width: 35px;
+    border-radius: 50%;
+}
+.containerHead button{
+    border:none;
+    border-radius:1em;
+    padding:6px 12px;
+    background-color: #393E46;
+    color:#cfcece;
+    /* box-shadow: rgb(155, 126, 189) 0px 50px 100px -20px, rgb(155, 126, 189) 0px 80px 80px -30px, rgb(148, 111, 190) 0px -5px 10px 0px inset; */
+}
+.botonActivo{
+    box-shadow: rgb(155, 126, 189) 0px 50px 100px -20px, rgb(155, 126, 189) 0px 80px 80px -30px, rgb(148, 111, 190) 0px -5px 10px 0px inset; 
+}
+
+/* 
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+*/
+
+/* Pie de pagina */
+footer{
+    display:flex;
+    flex-direction: column;
+    margin-top:auto;
+    width: 100%;
+}
+
+.containerPie{
+    display:flex;
+    justify-content: space-around;
+}.containerPie button{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px;
+    width: 100%;
+    padding:5px 0;
+    background-color: transparent;
+    border:none;
+    fill:#cfcece;
+    color:#cfcece
+}
+
+
+.svgPie{
+    width: 20px;
+    height: 20px;
+}
+/* Los siguientes diseños son para los svg y que esten en un tamaño considerable */
+.libroOculto,.lupaOculta,.casaOculta,.casaActiva,.lupaActiva,.libroActivo{
+    width: 20px;
+    height: 20px;
+    transition: width 1s ease, height 1s ease;
+}
+
+
+.contReproductor{
+    width: 95%;
+    display:flex;
+    flex-direction: row;
+    background-color:#cfcece;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    border-radius: .7em;
+    padding:5px 5px
+}
+.contInfoSong{
+    overflow-x: hidden;
+    font-size: 14px;
+}
+.contInfoSong p{
+    margin:0;
+    font-size: 16px;
+}
+.contBtnAmpliar{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:10px
+}
+.contImg{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgPortadaMini{
+    width: 40px;
+}
+
+.btnEstado{
+    background-color: transparent;
+    border:none;
+    fill:#cfcece;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+/* SVG de los estado pausar y reproducir */
+.svgPausar,.svgReproducir{
+    width: 20px;
+    height: 20px;
+    fill:#cfcece;
+}
+
+/* Este bloque es para ocultar los svg cuando se presiona uno u otro, por esto mismo es necesario  para activar y desactivar */
+.ocultar{
+    height: 0;
+    width: 0;
+    transition: width 1s ease, height 1s ease;
+}

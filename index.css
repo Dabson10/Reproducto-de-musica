@@ -22,6 +22,7 @@ body{
     padding:30px;
     color:#FFF;
     border-radius: .7em;
+    /* border: 2px solid white; */
 }
 header{
     width: 100%;
@@ -47,7 +48,19 @@ header button{
     display:flex;
     flex-direction: column;
     /* Este contenedor debo de agregar el position absolute para poder manejar animaciones correctamente */
-    /* position: absolute; */
+    position: absolute;
+    left:5%;
+    width: 90%;
+    /* visibility: hidden; */
+}
+.formReg{
+    display:flex;
+    flex-direction: column;
+    /* Este contenedor debo de agregar el position absolute para poder manejar animaciones correctamente */
+    position: absolute;
+    left:5%;
+    width: 90%;
+    visibility: hidden;
 }
 .login{
     display:flex;
