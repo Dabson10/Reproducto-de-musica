@@ -20,12 +20,20 @@
 <body>
     <header id="cabecera">
         <div class="containerHead">
-            <img id="botonesCabecera" src="../imagenes/coraje.jpg" alt="" class="imgPerfil" />
-            <button id="botonesNavegacion" data-category="general">General</button>
-            <button id="botonesNavegacion" data-category="musica">Musica</button>
-            <button id="botonesNavegacion" data-category="amigos">Amigos</button>
+            <img  class="btnNavegacion" id="botonesCabecera" src="../imagenes/coraje.jpg" alt=""  />
+            <button class="btnNavegacion botonActivo" id="botonesNavegacion" data-category="general">General</button>
+            <button class="btnNavegacion" id="botonesNavegacion" data-category="musica">Musica</button>
+            <button class="btnNavegacion" id="botonesNavegacion" data-category="amigos">Amigos</button>
         </div>
     </header>
+    <!-- Cuerpo con las diferentes secciones de la app entre ellas General, Musica, Amigos Incicio, Buscar y biblioteca -->
+    <main class="contCentral">
+        <section class="contGeneral ContenedorActivo" data-container="general">General</section>
+        <section class="contMusica ocultarContenedor" data-container="musica">Musica</section>
+        <section class="contAmigos ocultarContenedor" data-container="amigos">Amigos</section>
+        <section class="contBuscar ocultarContenedor" data-container="buscar">Buscar</section>
+        <section class="contBiblioteca ocultarContenedor" data-container="biblioteca">Biblioteca</section>
+    </main>
     <!-- Footer que contendra los botones para acceder a otras secciones -->
     <footer>
         <div class="contReproductor">
@@ -71,7 +79,7 @@
             </button>
         </div>
         <div class="containerPie">
-            <button id="botonesNavegacion" data-category="Inicio">
+            <button class="btnNavegacion" id="botonesNavegacion" data-category="general">
                 <!-- Casa no activa -->
                 <svg class="casaActiva" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                     <g id="_01_align_center" data-name="01 align center">
@@ -88,7 +96,7 @@
                 </svg>
                 Inicio
             </button>
-            <button id="botonesNavegacion" data-category="Buscar">
+            <button class="btnNavegacion" id="botonesNavegacion" data-category="buscar">
                 <!--Lupa no activa  -->
                 <svg class="lupaActiva" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1"
                     viewBox="0 0 24 24">
@@ -103,7 +111,7 @@
                 </svg>
                 Buscar
             </button>
-            <button id="botonesNavegacion" data-category="Biblioteca">
+            <button class="btnNavegacion" id="botonesNavegacion" data-category="biblioteca">
                 <!-- libro activo -->
                 <svg class="libroActivo" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1"
                     viewBox="0 0 24 24">

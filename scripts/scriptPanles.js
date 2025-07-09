@@ -1,14 +1,45 @@
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
     //Esto es para cambiar de secciones
-    const botones = document.querySelectorAll('#botonesNavegacion')
-    if(botones.length > 0){
+    const contenedoresVista = document.querySelectorAll(`.contGeneral,
+        .contMusica, .contAmigos, .contBuscar, .contBiblioteca`
+    )
+    // const botones = document.querySelectorAll('#botonesNavegacion')
+    const botones = document.querySelectorAll('.btnNavegacion')
+    if (botones.length > 0) {
         //Si procede entonces significa que encontrro algo
-        botones.forEach(botones =>{
-            botones.addEventListener('click', () =>{
+        let botonActivo = ""
+        botones.forEach(botones => {
+            if(botones.classList.contains('botonActivo')){
+                botonActivo = botones.classList
+                console.log(`El boton activo es: ${botonActivo}`)
+            }
+            botones.addEventListener('click', () => {
                 const valor = botones.value
                 const data = botones.dataset.category
-                alert(`Navegaras a ${data}`)
+                console.log(`La clase es: ${botones.classList}`)
+                //Este bloque es para desactivar todos los contenedores sin excepion
+                    contenedoresVista.forEach(conte =>{
+                        //Aqui se desactiva los contenedores que esten activo
+                        if(conte.classList.contains('ContenedorActivo') ){
+                            conte.classList.remove('ContenedorActivo')
+                            conte.classList.toggle('ocultarContenedor')
+                            botonActivo.remove('botonActivo')
+                        }
+                        
+                        const dataContainer = conte.dataset.container
+                        if(data === dataContainer){
+                            //Si es igual entonces se activa
+                            conte.classList.remove('ocultarContenedor')
+                            conte.classList.toggle('ContenedorActivo')
+                            botones.classList.toggle('botonActivo')
+                            console.log(`El contenedor que se activo es: ${dataContainer}`)
+                        }
+                    })
             })
         })
     }
+    //Se termina la funcionalidad para cambiar de seccion con el uso de botones
 })
+
+
+//Lo que te falta hacer es ajustar el cambio de color de los botones de la cabecera con respecto a la seccion que se abre
