@@ -39,7 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     //Se termina la funcionalidad para cambiar de seccion con el uso de botones
+
+    //Lo que te falta hacer es ajustar el cambio de color de los botones de la cabecera con respecto a la seccion que se abre
+
+//Evento para abrir la playlist o informacion de esta
+const imgBtnEntrar = document.querySelectorAll('.cardImg')
+const btnEntrar = document.querySelectorAll('.entrar')
+imgBtnEntrar.forEach(imgList =>{
+    imgList.addEventListener('click',()=>{
+        const dataPlaylist = imgList.dataset.playlist
+        console.log(`Entrar a la playlist ${dataPlaylist}`)
+        btnEntrar.forEach(btnEntrar =>{
+            const dataEntrar = btnEntrar.dataset.entrar
+            if(btnEntrar.classList.contains('mostrarBtn')){
+                btnEntrar.classList.remove('mostrarBtn')
+                btnEntrar.classList.toggle('ocultarBtn')
+            }
+            if(dataPlaylist === dataEntrar){
+                // console.log(`El valor del boton es: ${dataEntrar}`)
+                btnEntrar.classList.remove('ocultarBtn')
+                btnEntrar.classList.toggle('mostrarBtn')
+            }
+        })
+    })
+})
 })
 
 
-//Lo que te falta hacer es ajustar el cambio de color de los botones de la cabecera con respecto a la seccion que se abre
+
+

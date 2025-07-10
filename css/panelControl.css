@@ -4,12 +4,13 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #272829;
-    /* background-color: #b7b6b6; */
+    background-color:#1E1E28 ;
     color: white;
     display:flex;
     flex-direction: column;
-    height:100vh;
+    min-height:100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header{
@@ -44,12 +45,11 @@ header{
     box-shadow:
   /* Primera capa: El brillo principal y más cercano al borde */
   rgb(200, 180, 240) 0px 0px 40px -5px, /* Un morado más claro y brillante, sin desplazamiento, con buen desenfoque, y ligero 'spread' negativo para que no se salga */
-  
+
   /* Segunda capa: Un brillo secundario, un poco más difuso */
   rgb(180, 150, 220) 0px 0px 70px -15px, /* Otro morado claro, más desenfoque, 'spread' más negativo para mantenerlo contenido */
-  
   /* Mantienes tu sombra interna, que ayuda a definir el borde y le da profundidad */
-  rgb(148, 111, 190) 0px -5px 10px 0px inset;
+rgb(148, 111, 190) 0px -5px 10px 0px inset;
 }
 
 /* 
@@ -62,8 +62,10 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 footer{
     display:flex;
     flex-direction: column;
-    margin-top:auto;
+    /* margin-top:auto; */
     width: 100%;
+    position: sticky;
+    top:200px
 }
 
 .containerPie{
@@ -156,7 +158,6 @@ footer{
     width: 100%;
     display:flex;
     flex: column;
-    align-items: center;
     margin:auto;
     position:absolute;
     opacity:1;
@@ -169,4 +170,113 @@ footer{
 .ocultarContenedor{
     opacity:0;
     visibility: hidden;
+}
+/* Contenedor de general*/
+/* Este estilo contendra el general de las tarjetas de la playlist */
+.contCentral {
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1; 
+    overflow: hidden; 
+    overflow-y: auto;
+    width: 100%; 
+    position: relative;  
+}
+
+.contGeneral{
+    display:flex;
+    flex-direction: column;
+}
+.contPlayList{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    padding:10px;
+}
+/* Este estilo es el que contendra las diferentes tarjetas */
+.contTarget{
+    display:flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; 
+    /* justify-content:flex-start; */
+    align-items: center;
+    padding:20px 0px;
+    gap:20px;
+    scrollbar-width: none;  
+    -ms-overflow-style: none; 
+    position:relative;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+.contTarget::-webkit-scrollbar {
+    display: none; 
+}
+/* Diseño general de la tarjeta o card */
+.card{
+    /* width: 51.8%; */
+    width: 160px;
+    flex-shrink: 0;
+    display:flex;
+    flex-direction: column;
+    border-radius:1.5em;
+    background-color:#2A2A3A ;
+    box-shadow: 0 8px 16px rgba(130, 130, 130, 0.277);
+    /* margin-left:auto; */
+}
+.cardImg{
+    /* width: 45vw; */
+    width: 160px;
+    /* width: 100%; */
+    height: 185px;
+    /* height: 20vh; */
+    overflow: hidden;
+    object-fit: contain;
+}
+.cardPortada{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius:1.2em;
+
+}
+.cardInfo{
+    display:flex;
+    flex-direction: column;
+    padding:.5em 1.5em;
+    gap:1em;
+} 
+.entrar{
+    width: 100%;
+    color:#2A2A3A ;
+    background-color: #E0E0E0;
+    padding:5px;
+    border-radius: .7em;
+    border:none;
+    box-shadow: 0 8px 16px rgba(224, 224, 224, 0.4);
+    opacity: 1;
+    transition:opacity 1s linear;
+}
+.playListTitulo{
+    color: #E0E0E0;
+    font-weight: 600;
+    margin:0;
+}
+.subInfoPlay{
+    color: #A0A0A0;
+    margin:0;
+    font-weight: 400;
+}
+
+/* El siguiente bloque es el que ocultara a la seccion seccion
+de la informacion de la playlist */
+.ocultarBtn{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding:0;
+}
+.mostrarBtn{
+    visibility: visible;
 }

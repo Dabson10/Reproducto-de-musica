@@ -28,7 +28,54 @@
     </header>
     <!-- Cuerpo con las diferentes secciones de la app entre ellas General, Musica, Amigos Incicio, Buscar y biblioteca -->
     <main class="contCentral">
-        <section class="contGeneral ContenedorActivo" data-container="general">General</section>
+        <section class="contGeneral ContenedorActivo" data-container="general">
+            <!-- Contenedor de las playlist -->
+            <div class="contPlayList">
+                <p>Tus Playlist</p>
+                <div class="contTarget" >
+                    <!-- Este es el contenedor de la tarjeta de la playlist, para que puedan agregar la informacion correcta de
+                    la base de datos a esta card, necesitan guardar obviamente los datos relevantes como el titulo y la imagen obtenidas de la
+                    base de datos, pero para abri y entrar a la seccion de de la playlist primero deberan de 
+                    guardar un identificador clave en el data-playlist('nombre o identificador de la playlist') y en data-entrar ('nombre o identificador de la playlist')
+                    esto por que se muestra el boton cuando estos dos datos anteriores son iguales, por esto mismo es importante usar el data-entrar y data-playlist-->
+                    <div class="card">
+                        <div class="cardImg" data-playlist="react">
+                            <!-- <img class="cardPortada" src="http://i.pinimg.com/736x/44/70/f0/4470f0aeabfbf7396b09212b46d7d702.jpg" alt=""> -->
+                            <img class="cardPortada" src="../imagenes/witchy.png" alt="">
+                        </div>
+                        <div class="cardInfo" >
+                            <P class="playListTitulo">React</P>
+                            <button class="entrar ocultarBtn" data-entrar="react">Entrar</button>
+                        </div>
+                    </div>
+                    <!-- Otra playlist -->
+                    <div class="card">
+                        <div class="cardImg" data-playlist="Boolean">
+                            <img class="cardPortada" src="../imagenes/fondoPanel1.jpg" alt="">
+                        </div>
+                        <div class="cardInfo" data-playlist="play2">
+                            <P class="playListTitulo">Boolean</P>
+                            <button class="entrar ocultarBtn" data-Entrar="Boolean">Entrar</button>
+                        </div>
+                    </div>
+                    <!-- Otra -->
+                    <div class="card">
+                        <div class="cardImg" data-playlist="dod">
+                            <img class="cardPortada" src="../imagenes/fondoPanel2.jpg" alt="">
+                        </div>
+                        <div class="cardInfo">
+                            <P class="playListTitulo">DOD</P>
+                            <Button class="entrar ocultarBtn" data-Entrar="dod">Entrar</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenedor de amigos -->
+            <div class="contAmigosList">
+                <p>Tus amigos</p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio hic ex, aliquid ipsam fugit eveniet ipsa illum cum fuga nesciunt autem eius nobis. Nostrum natus nihil molestiae sit hic est doloremque eius deleniti qui voluptas!
+            </div>
+        </section>
         <section class="contMusica ocultarContenedor" data-container="musica">Musica</section>
         <section class="contAmigos ocultarContenedor" data-container="amigos">Amigos</section>
         <section class="contBuscar ocultarContenedor" data-container="buscar">Buscar</section>
