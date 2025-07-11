@@ -63,6 +63,19 @@ imgBtnEntrar.forEach(imgList =>{
         })
     })
 })
+//La siguiente funcionalidad es para cuando quieren viajar al perfil de un amigo,
+const btnAmigo = document.querySelectorAll('.contInfo')
+
+if(btnAmigo.length > 0){
+    btnAmigo.forEach(amigoBtn => {
+    amigoBtn.addEventListener('click', () =>{
+        const dataAmigo = amigoBtn.dataset.amigo
+        console.log(`El usuario: ${dataAmigo}`)
+    })
+})
+}
+
+//te queda hacer las valdaciones con respecto al nomrbe de la tarjeta para mas seguridad
 })
 
 
