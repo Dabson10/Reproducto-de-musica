@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     )
     // const botones = document.querySelectorAll('#botonesNavegacion')
     const botones = document.querySelectorAll('.btnNavegacion')
+    //Variable para los svg del pie de pagina y que cambien
+    const svgPie = document.querySelectorAll('.svgPie')
     if (botones.length > 0) {
         //Si procede entonces significa que encontrro algo
-        let botonActivo = ""
+        
         botones.forEach(botones => {
             if(botones.classList.contains('botonActivo')){
                 botonActivo = botones.classList
@@ -24,6 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
                             conte.classList.remove('ContenedorActivo')
                             conte.classList.toggle('ocultarContenedor')
                             botonActivo.remove('botonActivo')
+                            if(svgPie.length > 0){
+                                //Esta condicional es para cambiar el el icono del svg
+                                //funcionara cuando existan y cuando coincidan con el dataset
+                                svgPie.forEach(svgIcono =>{
+                                    const dataIcono = svgIcono.dataset.svg
+                                    if(svgIcono.classList.contains('svgVisible')){
+                                        console.log('perro')
+                                    }else{
+                                        console.log('no perro')
+                                    }
+                                })
+                            }else{
+                                console.info('no hay')
+                            }
                         }
                         
                         const dataContainer = conte.dataset.container
@@ -74,6 +90,33 @@ if(btnAmigo.length > 0){
     })
 })
 }
+
+//Esta seccion es la que se agregara las canciones a la base de datos, osea canciones nuevas
+//Este evento siguiente es para mostrar ventana de alerta para agregar canciones
+const btnAgregar = document.getElementById('agregarSong')
+const contAlerta = document.querySelector('.alertaCancion')
+if(btnAgregar && contAlerta){
+    btnAgregar.addEventListener('click', () =>{
+        if(contAlerta.classList.contains('ocultarAlerta')){
+            contAlerta.classList.remove('ocultarAlerta')
+            contAlerta.classList.toggle('mostrarAlerta')
+        }
+    })
+}
+
+//Este evento siguiente es para cerrar la alerta de agregar canciones
+
+const btnCerrarAlerta = document.getElementById('btnCerrarVista')
+
+if(btnCerrarAlerta){
+    btnCerrarAlerta.addEventListener('click',() =>{
+        if(contAlerta.classList.contains('mostrarAlerta')){
+            contAlerta.classList.remove('mostrarAlerta')
+            contAlerta.classList.toggle('ocultarAlerta')
+        }
+    })
+}
+
 
 //te queda hacer las valdaciones con respecto al nomrbe de la tarjeta para mas seguridad
 })

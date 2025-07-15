@@ -4,7 +4,7 @@ body{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color:#1E1E28 ;
+    background-color:#1E1E28;
     color: white;
     display:flex;
     flex-direction: column;
@@ -89,13 +89,22 @@ footer{
     width: 20px;
     height: 20px;
 }
+.svgVisible{
+    position:none;
+    opacity: 1;
+    transition: opacity 1s linear
+}
+.svgOculto{
+    position:absolute;
+    opacity: 0;
+    transition: opacity 1s linear;
+}
 /* Los siguientes diseños son para los svg y que esten en un tamaño considerable */
 .libroOculto,.lupaOculta,.casaOculta,.casaActiva,.lupaActiva,.libroActivo{
     width: 20px;
     height: 20px;
     transition: width 1s ease, height 1s ease;
 }
-
 
 .contReproductor{
     width: 95%;
@@ -315,4 +324,159 @@ de la informacion de la playlist */
 }
 .contInfo p{
     margin:0 10px 5px 10px;
+}
+/* Contenedor de las canciones */
+
+.containerMusica{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.buscar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    margin-top:15px;
+    position:sticky;
+    top:0
+}
+
+.inBuscar{
+    display:flex;
+    width: 70%;
+    padding:3px;
+    color:aliceblue;
+    background-color: transparent;
+    border:none;
+    border-bottom:2px solid #FFF;
+    font-size: 15px;
+}
+.svgBuscar{
+    fill: #FFF;
+}
+.agregarSong{
+    width: 30px;
+    fill: #FFF;
+}
+
+input:focus{
+    outline: none;
+}
+.contCardCancion{
+    display:flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+.cardCancion{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    gap:20px;
+    padding:15px 0 10px;
+}
+.imgCancionP{
+    width: 50px;
+    border-radius: .4em;
+}
+.contInfoCancion{
+    width: 66%;
+}.contInfoCancion p{
+    margin:0;
+}
+.svgCancion{
+    fill: #FFF;
+}
+
+/* Alerta de la creacion de la cancion */
+.ocultarAlerta{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:all 1s ease;
+    z-index: -9999;
+}
+.mostrarAlerta{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition:opacity 1s ease;
+    z-index: 9999;
+}
+.alertaCancion{
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    backdrop-filter:blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    height: 100vh;
+    
+}
+.cabeceraAlert{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+}.cabeceraAlert p{
+    margin: 0;
+}.cabeceraAlert button{
+    background-color: #8190a944;
+    /* background-color: transparent; */
+    color:white;
+    border: none;
+    font-size: 16px;
+    /* border-radius:10em; */
+    padding: 7px 10px
+}
+
+.contPortadaCancion{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 0;
+}.contPortadaCancion img{
+    width: 50%;
+    margin:10px
+}
+.btnSubirImg{
+    background: linear-gradient(
+        to bottom,
+        rgba(129, 144, 169, 0),
+        rgba(129, 144, 169, .55)
+    );
+    color:#b9b9b9;
+    border:none;
+    box-shadow: 0 4px 8px rgba(0,0,0, 0.1);
+
+}
+input{
+    display:flex;
+    align-items: center;
+    /* height: 1.7em; */
+    width: 70%;
+    padding: 10px 5px  5px 15px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #8d8c8c;
+    color: #FFF;
+    font-size: 17px;
+}
+input:focus{
+    outline: none;
+    border-bottom:2px solid2 #fff;
+}
+.formularioCancion{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    margin-top:30px
 }
