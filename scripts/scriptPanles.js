@@ -156,12 +156,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 //Ahora se le dara el diseño a la alera para que se acceda a ella 
                 if(alertaPlaylist.classList.contains('mostrarAlertaP')){
                     alertaPlaylist.classList.remove('mostrarAlertaP')
-                    alert('se borro')
                 }else{
                     alertaPlaylist.classList.toggle('mostrarAlertaP')
-                    alert('nada')
                 }
             })
+        })
+    }
+    //boton para salirse de la playlist 
+    const btnRegresar= document.getElementById('btnRegresar')
+    if(btnRegresar && alertaPlaylist){
+        btnRegresar.addEventListener('click', () => {
+            if(alertaPlaylist.classList.contains('mostrarAlertaP')){
+                alertaPlaylist.classList.remove('mostrarAlertaP')
+            }
+        })
+    }
+    //Hacer que se pause el estado en la seccion de la cancion full
+    const btnCambiarPR =document.querySelector('.btnCambioEst')
+    const svgPausa = document.getElementById('pausa')
+    const svgRepro = document.getElementById('reproducir')
+
+    if(btnCambiarPR && svgPausa && svgRepro){
+        btnCambiarPR.addEventListener('click', () => {
+            //Este sera simple, si uno contiene el estado activo, se borra y se activa el otro, simple
+            if(svgPausa.classList.contains('ocultarSvg')){
+                //Se remueve el contenedor
+                svgPausa.classList.remove('ocultarSvg')
+                //y se activa el del otro svg
+                svgRepro.classList.toggle('ocultarSvg')
+            }else if(svgRepro.classList.contains('ocultarSvg')){
+                svgRepro.classList.remove('ocultarSvg')
+                svgPausa.classList.toggle('ocultarSvg')
+            }
+        })
+    }
+    //Ahora toca activar y desactivar el boton del svg para hacer aparecer la cancion en full
+    const btnBajar = document.getElementById('btnBajar')
+    const contFullCa = document.querySelector('.fullCancion')
+    if(btnBajar && contFullCa){
+        btnBajar.addEventListener('click', () =>{
+            // alert('dede')
+            if(contFullCa.classList.contains('ocultarFull')){
+                contFullCa.classList.remove('ocultarFull')
+                
+            }else{
+                contFullCa.classList.remove('ocultarFull')
+            }
+        })
+    }
+
+    //Este es para hacer aparecer el contenedor de la cancion completa
+    const btnAbrirCan = document.getElementById('btnAbrirCancion')
+    if(btnAbrirCan && contFullCa){
+        btnAbrirCan.addEventListener('click', ()=>{
+            if(contFullCa.classList.contains('ocultarFull')){
+            }else{
+                contFullCa.classList.toggle('ocultarFull')
+            }
         })
     }
 

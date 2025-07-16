@@ -245,7 +245,7 @@
     <!-- Esta elerta mostrara las canciones que contiene una playlist -->
     <div class="alertContPlaylist">
         <div class="contCabPlaylist">
-            <svg class="regresar" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+            <svg class="regresar" id="btnRegresar" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
                 <path
                     d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z" />
             </svg>
@@ -268,7 +268,11 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
             <!--  -->
@@ -278,7 +282,11 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
             <!--  -->
@@ -288,7 +296,11 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
             <div class="cardCancionesPlaylist">
@@ -297,7 +309,11 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
             <div class="cardCancionesPlaylist">
@@ -306,7 +322,11 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
             <div class="cardCancionesPlaylist">
@@ -315,55 +335,132 @@
                     <span>Paco Amoroso</span>
                 </div>
                 <div class="config">
-                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                        <circle cx="2" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="22" cy="12" r="2" />
+                    </svg>
                 </div>
             </div>
-            
         </div>
     </div>
+    <!-- Para expandir la cancion es una alerta pero qeu empiece desde abajo. -->
     <!-- Footer que contendra los botones para acceder a otras secciones -->
-    <footer>
-        <div class="contReproductor">
-            <!-- Este contendor es el que hara que se haga grande la parte del reproductor, mostrando la imagen en grande de la cancion y tiempo -->
-            <div class="contBtnAmpliar">
-                <div class="contImg">
-                    <img class="imgPortadaMini" src="../imagenes/witchy.png" alt="" />
-                </div>
-                <div class="contInfoSong">
-                    <p>witchy (feat. Childish Gambino)</p>
-                    <span>KAYTRANADA, Childish Gambino</span>
-                </div>
+    <div class="fullCancion ">
+        <div class="cabPieCancion">
+            <svg class="cabPieCan" id="btnBajar" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                <path
+                    d="M18.71,8.21a1,1,0,0,0-1.42,0l-4.58,4.58a1,1,0,0,1-1.42,0L6.71,8.21a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41l4.59,4.59a3,3,0,0,0,4.24,0l4.59-4.59A1,1,0,0,0,18.71,8.21Z" />
+            </svg>
+            <span>¿Qué vas a hacer tan sola hoy?</span>
+            <svg class="cabPieCan" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                <circle cx="2" cy="12" r="2" />
+                <circle cx="12" cy="12" r="2" />
+                <circle cx="22" cy="12" r="2" />
+            </svg>
+        </div>
+        <div class="imgCancionFull">
+            <img class="imgFull" src="../imagenes/neo.png" alt="">
+        </div>
+        <div class="infoSongFull">
+            <p>neo roneo</p>
+            <span>rusowsky, latin mafia</span>
+        </div>
+        <div class="estadoCancion">
+            <div class="rango">
+                <input type="range">
             </div>
-            <!-- Boton que reproducira la cancion -->
-            <button class="btnEstado">
-                <!-- SVG para pausar la cancion -->
-                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                <svg class="svgPausar" width="20px" height="20px" viewBox="-1 0 8 8" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Dribbble-Light-Preview" transform="translate(-67.000000, -3765.000000)" fill="#000000">
+            <div class="tiempo">
+                <span>0:00</span>
+                <span>2:46</span>
+            </div>
+        </div>
+        <div class="iconosOpcionesFull">
+            <svg class="saltarReproducir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+                <g id="_01_align_center" data-name="01 align center">
+                    <path
+                        d="M15,6.485V.137L1.285,9.23l-.029.02a3,3,0,0,0,0,4.883L15,23.943V17.515l9,6.428V.057Zm7,13.572-9-6.429v6.429L2.419,12.505a1,1,0,0,1-.012-1.619L13,3.863v6.509l9-6.429Z" />
+                </g>
+            </svg>
+            <div class="btnCambioEst">
+                <!-- Pausar y reproducir -->
+            <svg class="pausarRepro ocultarSvg" id="pausa" data-estado="pausa" viewBox="-1 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-67.000000, -3765.000000)" >
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path
+                                d="M11,3613 L13,3613 L13,3605 L11,3605 L11,3613 Z M15,3613 L17,3613 L17,3605 L15,3605 L15,3613 Z"
+                                id="pause-[#1010]">
+
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <!-- Reproducir -->
+            <svg class="pausarRepro" id="reproducir" data-estado="reproducir" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <g id="Page-1" stroke="none" stroke-width="1"  fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)"
+                        >
+                        <path
+                            d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554"
+                            id="play" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg>
+            </div>
+            <!-- Saltar -->
+            <svg class="saltarReproducir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+                <g id="_01_align_center" data-name="01 align center">
+                    <path
+                        d="M22.74,9.25,9,.137V6.485L0,.057V23.943l9-6.428v6.428l13.741-9.811a3,3,0,0,0,0-4.882Zm-1.162,3.255L11,20.057V13.628L2,20.057V3.943l9,6.429V3.863l10.59,7.023a1,1,0,0,1-.012,1.619Z" />
+                </g>
+            </svg>
+        </div>
+    </div>
+    <footer>
+        <div class="contCancionPie">
+            <div class="cancionPie" id="btnAbrirCancion">
+                <!--  -->
+                <img class="imgPortadaPie" src="../imagenes/dillom.png" alt="">
+                <div class="infoPieCancion">
+                    <p>neo roneo</p>
+                    <span>rusowsky & latin mafia</span>
+                </div>
+                <!-- SVG reproducir -->
+                <svg class="svgReproducir" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd" sketch:type="MSPage">
+                        <g id="Icon-Set-Filled" sketch:type="MSLayerGroup"
+                            transform="translate(-419.000000, -571.000000)">
+                            <path
+                                d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554"
+                                id="play" sketch:type="MSShapeGroup">
+
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+                <!-- SVG pausar -->
+                <svg class="svgPausar" viewBox="-1 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-67.000000, -3765.000000)">
                             <g id="icons" transform="translate(56.000000, 160.000000)">
                                 <path
                                     d="M11,3613 L13,3613 L13,3605 L11,3605 L11,3613 Z M15,3613 L17,3613 L17,3605 L15,3605 L15,3613 Z"
-                                    id="pause-[#1010]"></path>
+                                    id="pause-[#1010]">
+                                </path>
                             </g>
                         </g>
                     </g>
                 </svg>
-                <!-- SVG para reproducir -->
-                <svg class="svgReproducir ocultar" width="20px" height="20px" viewBox="-3 0 28 28" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                        <g id="Icon-Set-Filled" sketch:type="MSLayerGroup"
-                            transform="translate(-419.000000, -571.000000)" fill="#000000">
-                            <path
-                                d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554"
-                                id="play" sketch:type="MSShapeGroup"></path>
-                        </g>
-                    </g>
-                </svg>
-            </button>
+            </div>
         </div>
         <div class="containerPie">
             <button class="btnNavegacion" id="botonesNavegacion" data-category="general">

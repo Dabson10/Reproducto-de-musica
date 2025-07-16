@@ -106,55 +106,153 @@ footer{
     transition: width 1s ease, height 1s ease;
 }
 
-.contReproductor{
-    width: 95%;
+
+
+
+
+/* SVG de los estado pausar y reproducir */
+.cancionPie{
     display:flex;
     flex-direction: row;
-    background-color:#cfcece;
-    justify-content: center;
+    width: 98%;
     align-items: center;
-    margin:auto;
-    border-radius: .7em;
-    padding:5px 5px
+    /* justify-content: centrar; */
+    margin: 0 auto;
+    border-radius:.2em;
+    padding:5px 0 5px 5px;
+    background-color: #7da2ac3c;
+    backdrop-filter:blur(50px);
+    -webkit-backdrop-filter: blur(20px);
 }
-.contInfoSong{
-    overflow-x: hidden;
-    font-size: 14px;
+.imgPortadaPie{
+    width: 50px;
+    height: 50px;
 }
-.contInfoSong p{
-    margin:0;
-    font-size: 16px;
-}
-.contBtnAmpliar{
+.infoPieCancion{
     display:flex;
-    justify-content:center;
-    align-items: center;
-    gap:10px
+    width: 70%;
+    flex-direction: column;
+    padding:5px;
+    
+}.infoPieCancion p{
+    margin:0 0 2px;
 }
-.contImg{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-.imgPortadaMini{
-    width: 40px;
-}
-
-.btnEstado{
-    background-color: transparent;
-    border:none;
-    fill:#cfcece;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-/* SVG de los estado pausar y reproducir */
 .svgPausar,.svgReproducir{
     width: 20px;
     height: 20px;
-    fill:#cfcece;
+    fill: #dddcdc;
+}
+/* Full cancion */
+.fullCancion{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #7da2ac3c;
+    backdrop-filter:blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 9999;
+}
+.ocultarFull{
+    visibility: visible;
+    opacity:1;
+    transition: opacity 1s ease;
+    z-index: 999;
+}
+.cabPieCancion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px;
+}
+.cabPieCan{
+    width: 20px;
+    fill: #cfcece;
+}
+.imgCancionFull{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+.imgFull{
+    width: 80%;
+    border-radius:.4em;
+}
+.infoSongFull{
+    /* width:100%; */
+    padding:30px 0 0 30px
+}.infoSongFull p{
+    margin: 0 0 0px;
+    color:#fff;
+    font-size: 16px;
+}.infoSongFull span{
+    color:#A0A0A0;
+    font-size: 14px;
+}
+.estadoCancion{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+.rango{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.rango input{
+    width: 80%;
+    background: #E0E0E0;
+    color:#dddcdc
+}
+.tiempo{
+    width: 85%;
+    display:flex;
+    margin:0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.iconosOpcionesFull{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top:20px;
+}
+.saltarReproducir{
+    width: 25px;
+    fill: #cfcece;
+}
+.pausarRepro{
+    width: 22px;
+    fill: black;
+    visibility: visible;
+    transition: visibility 1s ease;
+}
+.btnCambioEst{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    background-color: #FFF;
+    padding:15px
 }
 
+.ocultarSvg{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    position:absolute;
+    transition:visibility 1s ease
+}
+.ocultarAlertaFull{
+
+}
 /* Este bloque es para ocultar los svg cuando se presiona uno u otro, por esto mismo es necesario  para activar y desactivar */
 .ocultar{
     height: 0;
@@ -543,8 +641,8 @@ input:focus{
     background-color: #9ecad63c;
     backdrop-filter:blur(50px);
     -webkit-backdrop-filter: blur(20px);
-    height: 85vh;
-    padding:20px 0;
+    height: 100vh;
+    /* padding:10px 0 0 0; */
     opacity: 0;
     transition:opacity 1s linear;
     z-index: -9;
@@ -554,7 +652,7 @@ input:focus{
     display:flex;
     flex-direction: row;
     align-items:start;
-    padding:0 10px
+    padding:20px 10px 0;
 }
 .regresar{
     width: 20px;
@@ -621,3 +719,19 @@ input:focus{
     transition:opacity 1s linear;
     z-index: 9999;
 }
+
+
+
+
+
+
+/* Diseño para hacer aparecer los contenedores del footer */
+
+.aparecerPie{
+    width: 0;
+    height: 0;
+    position:absolute;
+    z-index: -9
+}
+
+
