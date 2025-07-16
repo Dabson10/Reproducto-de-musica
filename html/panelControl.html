@@ -28,7 +28,8 @@
     </header>
     <!-- Cuerpo con las diferentes secciones de la app entre ellas General, Musica, Amigos Incicio, Buscar y biblioteca -->
     <main class="contCentral">
-        <section class="contGeneral ocultarContenedor" data-container="general">
+        <!-- Seccion de general o inicio de la app -->
+        <section class="contGeneral ContenedorActivo" data-container="general">
             <!-- Contenedor de las playlist -->
             <div class="contPlayList">
                 <p>Tus Playlist</p>
@@ -74,7 +75,7 @@
             <div class="contAmigosList">
                 <p>Tus amigos</p>
                 <div class="contTargetAmigos">
-                    <div class="cardAmigo" data-nombreusuario="fawn">
+                    <div class="cardAmigo" data-nombreusuario="Dabson">
                         <img class="imgAmigo" src="../imagenes/coraje.jpg" alt="">
                         <div class="contInfo" data-amigo="Dabson">
                             <p>Dabson</p>
@@ -114,7 +115,8 @@
                 </div>
             </div>
         </section>
-        <section class="contMusica ContenedorActivo" data-container="musica">
+        <!-- Seccion en donde aparecera la musica o se podra agregar musica nueva -->
+        <section class="contMusica ocultarContenedor" data-container="musica">
             <div class="containerMusica">
                 Musica disponible
                 <div class="buscar">
@@ -128,48 +130,93 @@
                         </g>
                     </svg>
                     <!-- SVG para agregar una cancion -->
-                    <svg class="agregarSong" id="agregarSong" xmlns="http://www.w3.org/2000/svg" id="Filled" viewBox="0 0 24 24"><path d="M17,11H13V7a1,1,0,0,0-2,0v4H7a1,1,0,0,0,0,2h4v4a1,1,0,0,0,2,0V13h4a1,1,0,0,0,0-2Z"/></svg>
+                    <svg class="agregarSong" id="agregarSong" xmlns="http://www.w3.org/2000/svg" id="Filled"
+                        viewBox="0 0 24 24">
+                        <path d="M17,11H13V7a1,1,0,0,0-2,0v4H7a1,1,0,0,0,0,2h4v4a1,1,0,0,0,2,0V13h4a1,1,0,0,0,0-2Z" />
+                    </svg>
                 </div>
                 <div class="contCardCancion">
                     <div class="cardCancion">
                         <img class="imgCancionP" src="../imagenes/loquera.png" alt="">
-                    <div class="contInfoCancion">
-                        <p>Loquera</p>
-                        <p>Robot95 & jesse Baez</p>
-                    </div>
-                    <svg class="svgCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
-                        width="20" height="20">
-                        <circle cx="2" cy="12" r="2" />
-                        <circle cx="12" cy="12" r="2" />
-                        <circle cx="22" cy="12" r="2" />
-                    </svg>
+                        <div class="contInfoCancion">
+                            <p>Loquera</p>
+                            <p>Robot95 & jesse Baez</p>
+                        </div>
+                        <svg class="svgCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
+                            width="20" height="20">
+                            <circle cx="2" cy="12" r="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <circle cx="22" cy="12" r="2" />
+                        </svg>
                     </div>
                     <!-- Otra cancion -->
                     <div class="cardCancion">
                         <img class="imgCancionP" src="../imagenes/porgy.png" alt="">
-                    <div class="contInfoCancion">
-                        <p>Georgy Porgy</p>
-                        <p>TOTO</p>
-                    </div>
-                    <svg class="svgCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
-                        width="20" height="20">
-                        <circle cx="2" cy="12" r="2" />
-                        <circle cx="12" cy="12" r="2" />
-                        <circle cx="22" cy="12" r="2" />
-                    </svg>
+                        <div class="contInfoCancion">
+                            <p>Georgy Porgy</p>
+                            <p>TOTO</p>
+                        </div>
+                        <svg class="svgCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24"
+                            width="20" height="20">
+                            <circle cx="2" cy="12" r="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <circle cx="22" cy="12" r="2" />
+                        </svg>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Seccion en donde apareceran tus amigos y podras buscar nuevos -->
         <section class="contAmigos ocultarContenedor" data-container="amigos">Amigos</section>
+        <!-- Seccion par buscar en general ya se amigos, canciones o playlist -->
         <section class="contBuscar ocultarContenedor" data-container="buscar">Buscar</section>
-        <section class="contBiblioteca ocultarContenedor" data-container="biblioteca">Biblioteca</section>
+        <!-- Seccion que mostrara tus playlist o crear nuevas -->
+        <section class="contBiblioteca ocultarContenedor" data-container="biblioteca">
+            <div class="containerPlaylist">
+                <div class="cabceraPlaylist">
+                    <span>Tu bibioteca</span>
+                    <svg class="agregarSong" id="agregarPlayList" xmlns="http://www.w3.org/2000/svg" id="Filled"
+                        viewBox="0 0 24 24">
+                        <path d="M17,11H13V7a1,1,0,0,0-2,0v4H7a1,1,0,0,0,0,2h4v4a1,1,0,0,0,2,0V13h4a1,1,0,0,0,0-2Z" />
+                    </svg>
+                </div>
+                <div class="contPlayList">
+                    <div class="cardPlayList" data-playlist="DOD">
+                        <img src="../imagenes/fatal.png" alt="">
+                        <div class="infoPlaylist">
+                            <p>DOD</p>
+                            <span>Dabson10</span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="cardPlayList" data-playlist="A">
+                        <img src="../imagenes/coraje.jpg" alt="">
+                        <div class="infoPlaylist">
+                            <p>A</p>
+                            <span>Dabson10</span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="cardPlayList" data-playlist="Boolean">
+                        <img src="../imagenes/witchy.png
+                        " alt="">
+                        <div class="infoPlaylist">
+                            <p>Boolean</p>
+                            <span>Dabson10</span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                </div>
+            </div>
+        </section>
     </main>
     <!-- Esta se podria decir que es una alerta para agregar la cancion, no se ocultara ninguna seccion solamente sera una alerta
     sobre puesta -->
-    <div class="alertaCancion ocultarAlerta" >
+    <div class="alertaCancion ocultarAlerta">
         <div class="cabeceraAlert">
-            <button id="btnCerrarVista">Cerrar</button> <p>Editar canción</p>  <button>Guardar</button>
+            <button id="btnCerrarVista">Cerrar</button>
+            <p>Editar canción</p> <button>Guardar</button>
         </div>
         <div class="contPortadaCancion">
             <img src="../imagenes/summertime.png" alt="">
@@ -179,6 +226,99 @@
             <input type="text" placeholder="Nombre de la canción" required>
             <input type="text" placeholder="Nombre del artista">
             <input type="text" placeholder="Nombre del album">
+        </div>
+    </div>
+    <!-- Alerta para crear una playlist -->
+    <div class="alertaPlaylist">
+        <div class="cabeceraAlert">
+            <button id="btnCerrarPlaylist">Cerrar</button>
+            <p>Crear playlist</p> <button>Crear</button>
+        </div>
+        <div class="contPortadaCancion">
+            <img src="../imagenes/summertime.png" alt="">
+            <button class="btnSubirImg">Suba una imagen para la playList</button>
+        </div>
+        <div class="formularioCancion">
+            <input type="text" placeholder="Nombre de la playlist" required>
+        </div>
+    </div>
+    <!-- Esta elerta mostrara las canciones que contiene una playlist -->
+    <div class="alertContPlaylist">
+        <div class="contCabPlaylist">
+            <svg class="regresar" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24">
+                <path
+                    d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z" />
+            </svg>
+
+            <div class="imgCabecera">
+                <img class="imgCabPlaylist" src="../imagenes/fatal.png" alt="">
+            </div>
+        </div>
+        <div class="infoGenPlaylist">
+            <!-- Nombre de la cancion -->
+            <p>FATAL</p>
+            <!-- Nombre del artista -->
+            <span>Paco Amoroso</span>
+        </div>
+        <div class="infoCancionesPlaylist">
+            <!-- Ahora estas son las cards para las canciones que estaran dentroo de la playlist  -->
+            <div class="cardCancionesPlaylist">
+                <div class="intoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            <!--  -->
+            <div class="cardCancionesPlaylist">
+                <div class="intoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            <!--  -->
+            <div class="cardCancionesPlaylist">
+                <div class="intoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            <div class="cardCancionesPlaylist">
+                <div class="intoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            <div class="cardCancionesPlaylist">
+                <div class="intoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            <div class="cardCancionesPlaylist">
+                <div class="infoSongP">
+                    <p>FATAL</p>
+                    <span>Paco Amoroso</span>
+                </div>
+                <div class="config">
+                    <svg class="svgOpcCancion" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" ><circle cx="2" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="22" cy="12" r="2"/></svg>
+                </div>
+            </div>
+            
         </div>
     </div>
     <!-- Footer que contendra los botones para acceder a otras secciones -->
