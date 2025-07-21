@@ -1,20 +1,27 @@
-document.addEventListener("DOMContentLoaded",()=>{
+const SUPABASE_URL = 'https://cnyspgtbwiouqqdazwrk.supabase.co'
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNueXNwZ3Rid2lvdXFxZGF6d3JrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNjk0NzQsImV4cCI6MjA2Nzk0NTQ3NH0.jK9BSKdJAoPXVsk_W15AG-POe71AXvOeI1UUmxhunCY'
+
+// Inicialización de Supabase 
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Elementos del DOM
     const btnIngresar = document.getElementById('btnIngre')
     const btnRegistrar = document.getElementById('btnReg')
     const btnVerContra = document.getElementById('ver_no-ver')
     const btnVerContraReg = document.getElementById('ver_no-ver_Reg')
-    //Contenedores de los formularios
+
+    // Contenedores de los formularios
     const contForm = document.getElementById("contForms")
     const contLogin = document.getElementById("contLogin")
     const contRegis = document.getElementById("contReg")
-    /* Inputs del login
-        Valores de los inputs del login o ingresar, solo es el nombre y contraseñá
-     */
+
+    // Inputs del login
     const textContra = document.getElementById('textContra')
     const textCorreo = document.getElementById('correoLogin')
     const btnEnviarDatosLogin = document.getElementById('ingresarLogin')
-    //Inputs del registro de nuevos usuarios
-     //Valor de los inputs del registro
+
+    // Inputs del registro
     const textNombreUsuReg = document.getElementById('nombreUsuReg')
     const textApellidoReg = document.getElementById('apellidoReg')
     const textCorreoReg = document.getElementById('correoRegistro')
@@ -22,111 +29,293 @@ document.addEventListener("DOMContentLoaded",()=>{
     const textContraReg2 = document.getElementById('inContraReg2')
     const btnIngresarDataReg = document.getElementById('ingresarRegistro')
 
-    //Diseño del boton de ver o no ver la contraseña
+    // Elementos para mostrar/ocultar contraseña
     const ver = document.getElementById("ver")
     const no_ver = document.getElementById("no-ver")
+
+    // Verificar que los elementos existan antes de usarlos
+    if (!ver || !no_ver) {
+        console.error("Elementos 'ver' o 'no-ver' no encontrados en el DOM")
+        return
+    }
+
     no_ver.style.visibility = "hidden"
-    contForm.style.height = "30vh"
-    //Inicialmente el boton de ingresar debera tener un color
-    btnIngresar.style.color = '#ffff'
-    btnIngresar.style.borderBottom = '2px solid #fff'
-    //Y para verificar el estado del boton presionado es con boolean
+    if (contForm) contForm.style.height = "30vh"
+
+    // Configuración inicial
+    if (btnIngresar) {
+        btnIngresar.style.color = '#ffff'
+        btnIngresar.style.borderBottom = '2px solid #fff'
+    }
+
+    // Variables de estado
     let ingreso = true
     let registro = false
 
-    //Evento para acceder cambiar el formulario.
-    btnIngresar.addEventListener('click', () =>{
-        if(ingreso === true){
-            conspole.log("Ya estas en esa seccion")
-        }else{
-            //Esta es la accion que cambia la vista del formulario a Ingresar
-            console.log("Ingresando")
-            btnIngresar.style.color = '#ffff'
-            btnIngresar.style.borderBottom = '2px solid #fff'
-            ingreso = true
-            registro = false
-            btnRegistrar.style.color = '#8d8c8c'
-            btnRegistrar.style.border = 'none'
-            //Tamaño del contenedor minimo
-            contForm.style.height = "30vh"
-            //Se activa el contenedor de ingresar y se desactiva el de registrar
-            contLogin.style.visibility = "visible"
-            contRegis.style.visibility = "hidden"
-            //En esta parte lo que se hara es darle una altura, 
-            //esto por que los contenedores de los formularios estaran con 
-            //position: absolute; por lo que el fondo se hara pequeño 
-        }
-    })
-    btnRegistrar.addEventListener('click', () =>{
-        if(registro === true){
-            console.log("Ya estas en el registro")
-        }else{
-            //Esta es la accion para mostrar la vista de registro y ocultar la de ingreso
-            console.log("Ingresando al registro")
-            registro = true
-            btnIngresar.style.color = '#8d8c8c'
-            btnIngresar.style.border = 'none'
-            ingreso = false
-            btnRegistrar.style.color = '#FFFF'
-            btnRegistrar.style.borderBottom = '2px solid #fff'
-            //Se desactiva el login y se activa el registro
-            contLogin.style.visibility = "hidden"
-            contRegis.style.visibility = "visible"
-            contForm.style.height = "55vh"
-        }
-    })
-
-
-    //Evento para ver la contraseña ingresada en login
-    btnVerContra.addEventListener('click', (event) =>{
-        event.preventDefault();
-        let valor = textContra.type
-        console.log(`El tipo es: ${valor}`)
-        if(valor === "password"){
-            textContra.type = "text"
-            textContra.placeholder = "Contraseña"
-            no_ver.style.visibility = "visible"
-            ver.style.visibility = "hidden"
-        }else{
-            textContra.type = "password"
-            textContra.placeholder = "**********"
-            ver.style.visibility = "visible"
-            no_ver.style.visibility = "hidden"
-        }
-    })
-    //Evento para ver y ocultar la contraseña en la seccion de registro.
-    btnVerContraReg.addEventListener('click', (event)=>{
-        event.preventDefault();
-        let contra1 = textContraReg1
-        let contra2 = textContraReg2
-        console.log(`El valor de contra 1 es ${contra1.type}
-            \ny el de contra2 es ${contra2.type}`)
-
-        if(contra1.type == "password" && contra2.type == "password"){
-            contra1.type = "text"
-            contra1.placeholder = "Contraseña"
-            contra2.type = "text"
-            contra2.placeholder = "Contraseñá"
-            // console.log(`El valor de contra 1 es ${contra1.type}`)
-        }else{
-            //En esta seccion se aplica lo contrario se convierte de texto a password
-            contra1.type = "password"
-            contra1.placeholder = "**********"
-            contra2.type = "password"
-            contra2.placeholder = "**********"
-            
-        }
-    })
-    //Fin del uso de js para animaciones u otras cosas
-    /* Despues de esta parte agreguen la logica que necesiten para mandar informacion o algo */
-    //Ahora se realizara el mandado de informacion y cambio de pagina a el panel de control
-    btnEnviarDatosLogin.addEventListener('click', (event)=>{
-        event.preventDefault()
-        navegacion("./html/panelControl.html")
-    })
-
-    //Esta funcion es para reutilizar mas que nada abre la pagina del panel de control a traves de un parametro de esta funcion 
-    function navegacion(url){
-        window.open(url, "_self")
+    // Función para validar email
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return regex.test(email)
     }
-})//Fin de la lectura del documento
+
+    // Función para validar contraseña
+    function validarContrasena(password) {
+        return password.length >= 6 // Mínimo 6 caracteres
+    }
+
+    // Evento para cambiar a formulario de ingreso
+    if (btnIngresar) {
+        btnIngresar.addEventListener('click', () => {
+            if (ingreso === true) {
+                console.log("Ya estas en esa sección")
+            } else {
+                console.log("Ingresando")
+                btnIngresar.style.color = '#ffff'
+                btnIngresar.style.borderBottom = '2px solid #fff'
+                ingreso = true
+                registro = false
+
+                if (btnRegistrar) {
+                    btnRegistrar.style.color = '#8d8c8c'
+                    btnRegistrar.style.border = 'none'
+                }
+
+                if (contForm) contForm.style.height = "30vh"
+                if (contLogin) contLogin.style.visibility = "visible"
+                if (contRegis) contRegis.style.visibility = "hidden"
+            }
+        })
+    }
+
+    // Evento para cambiar a formulario de registro
+    if (btnRegistrar) {
+        btnRegistrar.addEventListener('click', () => {
+            if (registro === true) {
+                console.log("Ya estas en el registro")
+            } else {
+                console.log("Ingresando al registro")
+                registro = true
+
+                if (btnIngresar) {
+                    btnIngresar.style.color = '#8d8c8c'
+                    btnIngresar.style.border = 'none'
+                }
+
+                ingreso = false
+                btnRegistrar.style.color = '#FFFF'
+                btnRegistrar.style.borderBottom = '2px solid #fff'
+
+                if (contLogin) contLogin.style.visibility = "hidden"
+                if (contRegis) contRegis.style.visibility = "visible"
+                if (contForm) contForm.style.height = "55vh"
+            }
+        })
+    }
+
+    // Evento para ver/ocultar contraseña en login
+    if (btnVerContra && textContra) {
+        btnVerContra.addEventListener('click', (event) => {
+            event.preventDefault()
+
+            if (textContra.type === "password") {
+                textContra.type = "text"
+                textContra.placeholder = "Contraseña"
+                no_ver.style.visibility = "visible"
+                ver.style.visibility = "hidden"
+            } else {
+                textContra.type = "password"
+                textContra.placeholder = "**********"
+                ver.style.visibility = "visible"
+                no_ver.style.visibility = "hidden"
+            }
+        })
+    }
+
+    // Evento para ver/ocultar contraseña en registro
+    if (btnVerContraReg && textContraReg1 && textContraReg2) {
+        btnVerContraReg.addEventListener('click', (event) => {
+            event.preventDefault()
+
+            if (textContraReg1.type === "password" && textContraReg2.type === "password") {
+                textContraReg1.type = "text"
+                textContraReg1.placeholder = "Contraseña"
+                textContraReg2.type = "text"
+                textContraReg2.placeholder = "Confirmar contraseña"
+            } else {
+                textContraReg1.type = "password"
+                textContraReg1.placeholder = "**********"
+                textContraReg2.type = "password"
+                textContraReg2.placeholder = "**********"
+            }
+        })
+    }
+
+    // Evento para login
+    if (btnEnviarDatosLogin) {
+        btnEnviarDatosLogin.addEventListener('click', async (event) => {
+            event.preventDefault()
+
+            const correo = textCorreo?.value?.trim() || ''
+            const contrasena = textContra?.value?.trim() || ''
+
+            // Validaciones de los campos
+            if (!correo || !contrasena) {
+                alert("Por favor, completa todos los campos.")
+                return
+            }
+
+            if (!validarEmail(correo)) {
+                alert("Por favor, ingresa un email válido.")
+                return
+            }
+
+            try {
+                // Intento del inicio del sesion 
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: correo,
+                    password: contrasena
+                })
+
+                if (error) {
+                    console.error("Error Supabase:", error)
+
+                    // Alerta para la confirmacion del email en bandeja de entrada
+                    if (error.message.toLowerCase().includes('email not confirmed')) {
+                        alert("Por favor, confirma tu correo electrónico antes de iniciar sesión.")
+                    } else if (error.message.toLowerCase().includes('invalid login credentials')) {
+                        alert("Correo o contraseña incorrectos.")
+                    } else {
+                        alert("Error al iniciar sesión: " + error.message)
+                    }
+
+                    return
+                }
+
+                if (!data || !data.session || !data.user) {
+                    alert("Inicio de sesión fallido. Intenta nuevamente.")
+                    return
+                }
+
+                console.log("Login exitoso. Usuario:", data.user)
+
+                // Redirigir al panel de control
+                window.location.href = "./html/panelControl.html"
+
+            } catch (err) {
+                console.error("Excepción inesperada:", err)
+                alert("Ocurrió un error inesperado al iniciar sesión. Intenta más tarde.")
+            }
+        })
+    }
+
+
+    // Evento para registro
+    if (btnIngresarDataReg) {
+        btnIngresarDataReg.addEventListener('click', async (event) => {
+            event.preventDefault()
+
+            const nombre = textNombreUsuReg?.value?.trim() || ''
+            const apellido = textApellidoReg?.value?.trim() || ''
+            const correo = textCorreoReg?.value?.trim() || ''
+            const contrasena = textContraReg1?.value?.trim() || ''
+            const repetirContra = textContraReg2?.value?.trim() || ''
+
+            // Validaciones
+            if (!nombre || !apellido || !correo || !contrasena || !repetirContra) {
+                alert("Por favor, completa todos los campos")
+                return
+            }
+
+            if (!validarEmail(correo)) {
+                alert("Por favor, ingresa un email válido")
+                return
+            }
+
+            if (contrasena.length < 6) {
+                alert("La contraseña debe tener al menos 6 caracteres")
+                return
+            }
+
+            if (contrasena !== repetirContra) {
+                alert("Las contraseñas no coinciden")
+                return
+            }
+
+            try {
+                // Registro en Auth con configuración para confirmación
+                console.log("Registrando en Auth...")
+                const { data: authData, error: authError } = await supabase.auth.signUp({
+                    email: correo,
+                    password: contrasena,
+                    options: {
+                        data: {
+                            nombre_completo: `${nombre} ${apellido}`
+                        }
+                    }
+                })
+
+                if (authError) {
+                    console.error("Error Auth:", authError)
+                    alert("Error al registrar: " + authError.message)
+                    return
+                }
+
+                // Si el usuario necesita confirmar email
+                if (authData.user && !authData.user.email_confirmed_at) {
+                    alert("¡Registro exitoso! Te hemos enviado un email de confirmación. Por favor, revisa tu bandeja de entrada y haz click en el enlace para activar tu cuenta.")
+
+                    // Limpiar formulario
+                    textNombreUsuReg.value = ''
+                    textApellidoReg.value = ''
+                    textCorreoReg.value = ''
+                    textContraReg1.value = ''
+                    textContraReg2.value = ''
+
+                    btnIngresar.click()
+                    return
+                }
+
+                // Insertar datos en la tabla usuarios
+                const datosUsuario = {
+                    id_usuario: authData.user.id, // Usar el ID de Auth
+                    nombre_usuario: `${nombre} ${apellido}`,
+                    correo: correo,
+                    contraseña: contrasena,
+                    fecha_registro: new Date().toISOString(),
+                    foto_perfil: null
+                }
+
+                console.log("Insertando datos:", datosUsuario)
+
+                const { data: insertData, error: insertError } = await supabase
+                    .from("usuarios")
+                    .insert([datosUsuario])
+                    .select()
+
+                if (insertError) {
+                    console.error("Error inserción:", insertError)
+                    alert("Error al guardar: " + insertError.message)
+                    return
+                }
+
+                console.log("Usuario registrado completamente")
+                alert("¡Usuario registrado correctamente!")
+
+                // Limpiar formulario
+                textNombreUsuReg.value = ''
+                textApellidoReg.value = ''
+                textCorreoReg.value = ''
+                textContraReg1.value = ''
+                textContraReg2.value = ''
+
+                btnIngresar.click()
+
+            } catch (err) {
+                console.error("Error:", err)
+                alert("Error inesperado: " + err.message)
+            }
+        })
+    }
+
+
+})

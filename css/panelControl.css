@@ -250,7 +250,7 @@ footer{
     position:absolute;
     transition:visibility 1s ease
 }
-.ocultarAlertaFull{
+/*.ocultarAlertaFull{
 
 }
 /* Este bloque es para ocultar los svg cuando se presiona uno u otro, por esto mismo es necesario  para activar y desactivar */
