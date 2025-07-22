@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                // Registro en Auth con configuración para confirmación
+                // Registro en Auth
                 console.log("Registrando en Auth...")
                 const { data: authData, error: authError } = await supabase.auth.signUp({
                     email: correo,
@@ -260,24 +260,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     return
                 }
 
-                // Si el usuario necesita confirmar email
-                if (authData.user && !authData.user.email_confirmed_at) {
-                    alert("¡Registro exitoso! Te hemos enviado un email de confirmación. Por favor, revisa tu bandeja de entrada y haz click en el enlace para activar tu cuenta.")
-
-                    // Limpiar formulario
-                    textNombreUsuReg.value = ''
-                    textApellidoReg.value = ''
-                    textCorreoReg.value = ''
-                    textContraReg1.value = ''
-                    textContraReg2.value = ''
-
-                    btnIngresar.click()
+                // Verificar que el usuario se creó
+                if (!authData.user) {
+                    alert("Error: No se pudo crear el usuario")
                     return
                 }
 
-                // Insertar datos en la tabla usuarios
+                console.log("Usuario creado en Auth:", authData.user)
+
+                // AUTENTICAR AL USUARIO INMEDIATAMENTE
+                console.log("Autenticando usuario...")
+                const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+                    email: correo,
+                    password: contrasena
+                })
+
+                if (loginError) {
+                    console.error("Error al autenticar:", loginError)
+                    alert("Usuario creado pero no se pudo autenticar, revisa tu correo y autenticalo, despues vuelve a dar en 'INGRESAR': " + loginError.message)
+                    return
+                }
+
+                console.log("Usuario autenticado:", loginData.user)
+
+                // AHORA SÍ insertar en la tabla (ya autenticado)
                 const datosUsuario = {
-                    id_usuario: authData.user.id, // Usar el ID de Auth
+                    id_usuario: authData.user.id,
                     nombre_usuario: `${nombre} ${apellido}`,
                     correo: correo,
                     contraseña: contrasena,
@@ -285,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     foto_perfil: null
                 }
 
-                console.log("Insertando datos:", datosUsuario)
+                console.log("Insertando datos en tabla usuarios:", datosUsuario)
 
                 const { data: insertData, error: insertError } = await supabase
                     .from("usuarios")
@@ -294,12 +302,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (insertError) {
                     console.error("Error inserción:", insertError)
-                    alert("Error al guardar: " + insertError.message)
+                    alert("Error al guardar en base de datos: " + insertError.message)
                     return
                 }
 
-                console.log("Usuario registrado completamente")
-                alert("¡Usuario registrado correctamente!")
+                console.log("✅ Usuario guardado en tabla usuarios:", insertData)
+
+                // Verificar si necesita confirmación de email
+                if (authData.user && !authData.user.email_confirmed_at) {
+                    alert("¡Registro exitoso! Te hemos enviado un email de confirmación. Estás conectado temporalmente, pero para acceso completo confirma tu email.")
+                } else {
+                    // Email confirmado automáticamente
+                    alert("¡Usuario registrado y autenticado correctamente!")
+                }
 
                 // Limpiar formulario
                 textNombreUsuReg.value = ''
@@ -308,14 +323,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 textContraReg1.value = ''
                 textContraReg2.value = ''
 
+                // Cambiar a formulario de login
                 btnIngresar.click()
 
             } catch (err) {
-                console.error("Error:", err)
+                console.error("Error inesperado:", err)
                 alert("Error inesperado: " + err.message)
             }
         })
     }
-
-
 })
